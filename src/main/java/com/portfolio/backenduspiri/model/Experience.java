@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,13 +16,33 @@ public class Experience {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @NotNull
+    @Size( max = 45 , message = "[Experience.company] - Not accurate size")
     private String company;
+    
+    @NotNull
+    @Size( max = 45 , message = "[Experience.job] - Not accurate size")
     private String job;
+    
+    @NotNull
     private boolean is_actual;
+    
+    @NotNull
+    @Size( max = 10 , message = "[Experience.start_date] - Not accurate size")
     private String start_sate;
+    
+    @Size( max = 10 , message = "[Experience.end_date] - Not accurate size")
     private String end_date;
+    
+    @NotNull
+    @Size( max = 200 , message = "[Experience.img_url] - Not accurate size")
     private String img_url;
+    
+    @Size( max = 200 , message = "[Experience.link] - Not accurate size")
     private String link;
+    
+    @NotNull
     private boolean enabled_link;
 
     public Experience() {
