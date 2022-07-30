@@ -18,41 +18,41 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @NotNull
-    @Size( max = 45 , message = "[Persona.name] - Not accurate size")
+    
+    @Size( max = 45 , message = "[Person.name] - Not accurate size")
     private String name;
     
-    @NotNull
-    @Size( max = 45 , message = "[Persona.surname] - Not accurate size")
+    
+    @Size( max = 45 , message = "[Person.surname] - Not accurate size")
     private String surname;
     
-    @NotNull
-    @Size( max = 45 , message = "[Persona.address] - Not accurate size")
+    
+    @Size( max = 45 , message = "[Person.address] - Not accurate size")
     private String address;
     
-    @NotNull
-    @Size( max = 10 , message = "[Persona.birth_date] - Not accurate size")
+    
+    @Size( max = 45 , message = "[Person.birth_date] - Not accurate size")
     private String birth_date;
     
-    @NotNull
-    @Size( max = 10 , message = "[Persona.age] - Not accurate size")
+    
+    @Size( max = 10 , message = "[Person.age] - Not accurate size")
     private String age;
     
-    @NotNull
-    @Size( max = 25 , message = "[Persona.phone] - Not accurate size")
+    
+    @Size( max = 25 , message = "[Person.phone] - Not accurate size")
     private String phone;
     
-    @NotNull
-    @Size( max = 45 , message = "[Persona.email] - Not accurate size")
+    
+    @Size( max = 45 , message = "[Person.email] - Not accurate size")
     @Email
     private String email;
     
-    @NotNull
-    @Size( max = 80 , message = "[Persona.lit_about] - Not accurate size")
+    
+    @Size( max = 80 , message = "[Person.lit_about] - Not accurate size")
     private String lit_about;
     
-    @NotNull
-    @Size( max = 200 , message = "[Persona.about] - Not accurate size")
+    
+    @Size( max = 200 , message = "[Person.about] - Not accurate size")
     private String about;
 
     public Person() {
