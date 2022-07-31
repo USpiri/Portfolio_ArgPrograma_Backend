@@ -45,9 +45,10 @@ public class ProjectController {
     }
     
     @PostMapping("/{id}")
-    public void saveProject( @PathVariable Long id, @RequestBody Project project ){
+    public Project saveProject( @PathVariable Long id, @RequestBody Project project ){
         project.setPerson(personService.getPerson(id));
         projectService.createProject(project);
+        return projectService.getProject(project.getId());
     }
     
     @PutMapping("/{id}")

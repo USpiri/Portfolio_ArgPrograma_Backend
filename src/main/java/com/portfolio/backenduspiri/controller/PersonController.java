@@ -36,8 +36,9 @@ public class PersonController {
     }
     
     @PostMapping
-    public void savePerson( @RequestBody Person per ){
+    public Person savePerson( @RequestBody Person per ){
         personService.createPerson(per);
+        return personService.getPerson(per.getId());
     }
     
     @PutMapping("/{id}")

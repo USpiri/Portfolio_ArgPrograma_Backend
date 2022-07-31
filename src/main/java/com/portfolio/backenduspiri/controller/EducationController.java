@@ -45,9 +45,10 @@ public class EducationController {
     }
     
     @PostMapping("/{id}")
-    public void saveEducation( @PathVariable Long id, @RequestBody Education edu ){
+    public Education saveEducation( @PathVariable Long id, @RequestBody Education edu ){
         edu.setPerson(personService.getPerson(id));
         educationService.createEducation(edu);
+        return educationService.getEducation(edu.getId());
     }
     
     @PutMapping("/{id}")

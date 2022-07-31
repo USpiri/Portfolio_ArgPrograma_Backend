@@ -2,7 +2,6 @@ package com.portfolio.backenduspiri.controller;
 
 import com.portfolio.backenduspiri.model.Experience;
 import com.portfolio.backenduspiri.service_interface.IExperienceService;
-import com.portfolio.backenduspiri.service_interface.IJobTypeService;
 import com.portfolio.backenduspiri.service_interface.IPersonService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +45,10 @@ public class ExperienceController {
     }
     
     @PostMapping("/{id}")
-    public void saveExperience( @PathVariable Long id, @RequestBody Experience exp ){
+    public Experience saveExperience( @PathVariable Long id, @RequestBody Experience exp ){
         exp.setPerson(personService.getPerson(id));
         expService.createExperience(exp);
+        return expService.getExperience(exp.getId());
     }
     
     @PutMapping("/{id}")

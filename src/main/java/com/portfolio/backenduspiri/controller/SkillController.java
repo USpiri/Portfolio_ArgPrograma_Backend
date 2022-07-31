@@ -45,9 +45,10 @@ public class SkillController {
     }
     
     @PostMapping("/{id}")
-    public void saveSkill( @PathVariable Long id, @RequestBody Skill skill ){
+    public Skill saveSkill( @PathVariable Long id, @RequestBody Skill skill ){
         skill.setPerson(personService.getPerson(id));
         skillService.createSkill(skill);
+        return skillService.getSkill(skill.getId());
     }
     
     @PutMapping("/{id}")
