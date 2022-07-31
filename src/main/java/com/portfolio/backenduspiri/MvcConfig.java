@@ -1,4 +1,4 @@
-package com.example.imageapi;
+package com.portfolio.backenduspiri;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
