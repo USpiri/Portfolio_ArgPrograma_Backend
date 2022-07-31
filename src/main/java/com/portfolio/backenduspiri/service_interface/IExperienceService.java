@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.portfolio.backenduspiri.service_interface;
 
-/**
- *
- * @author Uriel Spiridione
- */
+import com.portfolio.backenduspiri.model.Experience;
+import java.util.List;
+
 public interface IExperienceService {
+    
+    public List<Experience> getExperience();
+    
+    public void createExperience( Experience exp );
+    
+    public void deleteExperience( Long id );
+    
+    public Experience getExperience( Long id );
+    
+    public List<Experience> findByPersonId( Long id );
+    
+    public Experience updateExperience( Experience exp );
     
 }

@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.portfolio.backenduspiri.service_interface;
 
-/**
- *
- * @author Uriel Spiridione
- */
+import com.portfolio.backenduspiri.model.Image;
+import java.util.List;
+
 public interface IImageService {
+    
+    public List<Image> getImages();
+    
+    public void createImage( Image img );
+    
+    public void deleteImage( Long id );
+    
+    public Image getImage( Long id );
+    
+    public List<Image> findByPersonId( Long id );
+    
+    public Image updateImage( Image img );
     
 }

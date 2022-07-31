@@ -32,5 +32,11 @@ public class PersonService implements IPersonService {
     public Person getPerson(Long id) {
         return personRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public Person updatePerson(Person per) {
+        personRepo.save(per);
+        return per;
+    }
     
 }

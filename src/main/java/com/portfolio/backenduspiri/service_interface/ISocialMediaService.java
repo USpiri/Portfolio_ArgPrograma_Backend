@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.portfolio.backenduspiri.service_interface;
 
-/**
- *
- * @author Uriel Spiridione
- */
+import com.portfolio.backenduspiri.model.SocialMedia;
+import java.util.List;
+
 public interface ISocialMediaService {
+    
+    public List<SocialMedia> getSocialMedias();
+    
+    public void createSocialMedia( SocialMedia social );
+    
+    public void deleteSocialMedia( Long id );
+    
+    public SocialMedia getSocialMedia( Long id );
+    
+    public List<SocialMedia> findByPersonId( Long id );
+    
+    public SocialMedia updateSocialMedia( SocialMedia social );
     
 }

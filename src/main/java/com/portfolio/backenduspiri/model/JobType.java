@@ -14,10 +14,9 @@ import lombok.Setter;
 public class JobType {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotNull
     @Size( max = 45 , message = "[JobType.name] - Not accurate size")
     private String name;
 

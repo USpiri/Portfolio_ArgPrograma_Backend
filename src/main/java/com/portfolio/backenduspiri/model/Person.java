@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,42 +14,33 @@ import lombok.Setter;
 public class Person {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
     
     @Size( max = 45 , message = "[Person.name] - Not accurate size")
     private String name;
     
-    
     @Size( max = 45 , message = "[Person.surname] - Not accurate size")
     private String surname;
-    
     
     @Size( max = 45 , message = "[Person.address] - Not accurate size")
     private String address;
     
-    
     @Size( max = 45 , message = "[Person.birth_date] - Not accurate size")
     private String birth_date;
-    
     
     @Size( max = 10 , message = "[Person.age] - Not accurate size")
     private String age;
     
-    
     @Size( max = 25 , message = "[Person.phone] - Not accurate size")
     private String phone;
-    
     
     @Size( max = 45 , message = "[Person.email] - Not accurate size")
     @Email
     private String email;
     
-    
     @Size( max = 80 , message = "[Person.lit_about] - Not accurate size")
     private String lit_about;
-    
     
     @Size( max = 200 , message = "[Person.about] - Not accurate size")
     private String about;

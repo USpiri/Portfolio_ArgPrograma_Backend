@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.portfolio.backenduspiri.service_interface;
 
-/**
- *
- * @author Uriel Spiridione
- */
+import com.portfolio.backenduspiri.model.Education;
+import java.util.List;
+
 public interface IEducationService {
+    
+    public List<Education> getEducation();
+    
+    public void createEducation (Education per);
+    
+    public void deleteEducation (Long id);
+    
+    public Education getEducation (Long id);
+    
+    public List<Education> findByPersonId(Long id);
+    
+    public Education updateEducation(Education edu);
     
 }

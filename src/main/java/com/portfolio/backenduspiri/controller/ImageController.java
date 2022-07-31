@@ -1,6 +1,7 @@
 package com.portfolio.backenduspiri.controller;
 
-import com.portfolio.backenduspiri.model.Person;
+import com.portfolio.backenduspiri.model.Image;
+import com.portfolio.backenduspiri.service_interface.IImageService;
 import com.portfolio.backenduspiri.service_interface.IPersonService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,50 +17,52 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/image")
 @CrossOrigin( origins = "http://localhost:4200" )
-public class PersonController {
+public class ImageController {
+    
+    @Autowired
+    private IImageService imgService;
     
     @Autowired
     private IPersonService personService;
     
     @GetMapping
     @ResponseBody
-    public List<Person> getPeople(){
-        return personService.getPeople();
+    public List<Image> getImage(){
+        return imgService.getImages();
     }
     
     @GetMapping("/{id}")
     @ResponseBody
-    public Person getPerson( @PathVariable Long id ){
-        return personService.getPerson( id );
+    public Image getImage( @PathVariable Long id ){
+        return imgService.getImage( id );
     }
     
-    @PostMapping
-    public void savePerson( @RequestBody Person per ){
-        personService.createPerson(per);
+    @GetMapping("person/{id}")
+    public List<Image> getImageByPersonId( @PathVariable Long id ){
+        return imgService.findByPersonId(id);
+    }
+    
+    @PostMapping("/{id}")
+    public void saveImage( @PathVariable Long id, @RequestBody Image img ){
+        img.setPerson(personService.getPerson(id));
+        imgService.createImage(img);
     }
     
     @PutMapping("/{id}")
-    public Person updatePerson( @PathVariable Long id, @RequestBody Person per ){
-        Person perToUpdate = personService.getPerson(id);
+    public Image updateImage( @PathVariable Long id, @RequestBody Image img ){
+        Image imgToUpdate = imgService.getImage(id);
         
-        perToUpdate.setName(per.getName());
-        perToUpdate.setSurname(per.getSurname());
-        perToUpdate.setAddress(per.getAddress());
-        perToUpdate.setBirth_date(per.getBirth_date());
-        perToUpdate.setAge(per.getAge());
-        perToUpdate.setPhone(per.getPhone());
-        perToUpdate.setEmail(per.getEmail());
-        perToUpdate.setLit_about(per.getLit_about());
-        perToUpdate.setAbout(per.getAbout());
+        imgToUpdate.setAbout(img.getAbout());
+        imgToUpdate.setHeader(img.getHeader());
         
-        return personService.updatePerson(perToUpdate);
+        return imgService.updateImage(imgToUpdate);
     }
     
     @DeleteMapping("/{id}")
-    public void deletePerson( @PathVariable Long id ){
-        personService.deletePerson(id);
+    public void deleteImage( @PathVariable Long id ){
+        imgService.deleteImage(id);
     }
     
 }

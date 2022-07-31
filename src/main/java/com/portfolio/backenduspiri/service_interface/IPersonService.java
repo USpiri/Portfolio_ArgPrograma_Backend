@@ -7,10 +7,12 @@ public interface IPersonService {
     
     public List<Person> getPeople();
     
-    public void createPerson (Person per);
+    public void createPerson(Person per);
     
-    public void deletePerson (Long id);
+    public void deletePerson(Long id);
     
-    public Person getPerson (Long id);
+    public Person getPerson(Long id);
+    
+    public Person updatePerson(Person per);
     
 }
