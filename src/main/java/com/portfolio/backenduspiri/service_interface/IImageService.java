@@ -13,7 +13,7 @@ public interface IImageService {
     
     public Image getImage( Long id );
     
-    public List<Image> findByPersonId( Long id );
+    public Image findByPersonId( Long id );
     
     public Image updateImage( Image img );
     

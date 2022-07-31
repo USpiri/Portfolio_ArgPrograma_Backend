@@ -34,7 +34,7 @@ public class ImageService implements IImageService {
     }
 
     @Override
-    public List<Image> findByPersonId(Long id) {
+    public Image findByPersonId(Long id) {
         return imgRepo.findByPersonId(id);
     }
 

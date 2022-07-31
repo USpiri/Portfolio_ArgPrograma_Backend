@@ -40,7 +40,7 @@ public class ImageController {
     }
     
     @GetMapping("person/{id}")
-    public List<Image> getImageByPersonId( @PathVariable Long id ){
+    public Image getImageByPersonId( @PathVariable Long id ){
         return imgService.findByPersonId(id);
     }
     

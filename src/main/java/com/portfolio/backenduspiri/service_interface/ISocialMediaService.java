@@ -13,7 +13,7 @@ public interface ISocialMediaService {
     
     public SocialMedia getSocialMedia( Long id );
     
-    public List<SocialMedia> findByPersonId( Long id );
+    public SocialMedia findByPersonId( Long id );
     
     public SocialMedia updateSocialMedia( SocialMedia social );
     

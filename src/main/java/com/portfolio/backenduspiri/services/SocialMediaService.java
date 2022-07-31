@@ -34,7 +34,7 @@ public class SocialMediaService implements ISocialMediaService {
     }
 
     @Override
-    public List<SocialMedia> findByPersonId(Long id) {
+    public SocialMedia findByPersonId(Long id) {
         return socialRepo.findByPersonId(id);
     }
 

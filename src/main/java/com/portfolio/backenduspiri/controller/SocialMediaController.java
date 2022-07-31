@@ -40,7 +40,7 @@ public class SocialMediaController {
     }
     
     @GetMapping("person/{id}")
-    public List<SocialMedia> getSocialMediaByPersonId( @PathVariable Long id ){
+    public SocialMedia getSocialMediaByPersonId( @PathVariable Long id ){
         return socialService.findByPersonId(id);
     }
     
