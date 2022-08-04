@@ -7,6 +7,7 @@ import com.portfolio.backenduspiri.util.FileUploadUtil;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,6 +50,7 @@ public class ProjectController {
         return projectService.findByPersonId(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{id}")
     public Project saveProject( @PathVariable Long id, @RequestBody Project project ){
         project.setPerson(personService.getPerson(id));
@@ -56,6 +58,7 @@ public class ProjectController {
         return projectService.getProject(project.getId());
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public Project updateProject( @PathVariable Long id, @RequestBody Project project ){
         Project projectToUpdate = projectService.getProject(id);
@@ -69,6 +72,7 @@ public class ProjectController {
         return projectService.updateProject(projectToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}/image")
     public Project updateProjectImage( @PathVariable Long id, @RequestParam("project") MultipartFile edu ) throws IOException{
         Project projectToUpdate = projectService.getProject(id);
@@ -86,6 +90,7 @@ public class ProjectController {
         
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteProject( @PathVariable Long id ) throws IOException{
         String fileDir = "user-photos/" + projectService.getProject(id).getPerson().getId() + "/project";

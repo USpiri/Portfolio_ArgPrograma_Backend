@@ -7,6 +7,7 @@ import com.portfolio.backenduspiri.util.FileUploadUtil;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,6 +50,7 @@ public class ExperienceController {
         return expService.findByPersonId(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{id}")
     public Experience saveExperience( @PathVariable Long id, @RequestBody Experience exp ){
         exp.setPerson(personService.getPerson(id));
@@ -56,6 +58,7 @@ public class ExperienceController {
         return expService.getExperience(exp.getId());
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public Experience updateExperience( @PathVariable Long id, @RequestBody Experience exp ){
         Experience expToUpdate = expService.getExperience(id);
@@ -74,6 +77,7 @@ public class ExperienceController {
         
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}/image")
     public Experience updateExperienceImage( @PathVariable Long id, @RequestParam("experience") MultipartFile exp ) throws IOException{
         Experience expToUpdate = expService.getExperience(id);
@@ -91,6 +95,7 @@ public class ExperienceController {
         
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteExperience( @PathVariable Long id ) throws IOException{
         String fileDir = "user-photos/" + expService.getExperience(id).getPerson().getId() + "/experience";

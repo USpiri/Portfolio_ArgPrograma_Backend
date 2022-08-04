@@ -36,6 +36,7 @@ public class PersonController {
         return personService.getPerson( id );
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public Person savePerson( @RequestBody Person per ){
         personService.createPerson(per);
@@ -60,6 +61,7 @@ public class PersonController {
         return personService.updatePerson(perToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deletePerson( @PathVariable Long id ){
         personService.deletePerson(id);

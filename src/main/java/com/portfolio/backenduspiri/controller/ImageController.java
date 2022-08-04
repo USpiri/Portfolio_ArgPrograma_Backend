@@ -7,6 +7,7 @@ import com.portfolio.backenduspiri.util.FileUploadUtil;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,6 +56,7 @@ public class ImageController {
         imgService.createImage(img);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}") //SAVE TWO IMAGES
     public Image updateImage( @PathVariable Long id, @RequestParam("image") MultipartFile[] image ) throws IOException{
         Image imgToUpdate = imgService.getImage(id);
@@ -75,6 +77,7 @@ public class ImageController {
         return imgService.updateImage(imgToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}/header") //SAVE Header IMAGE
     public Image updateHeaderImage( @PathVariable Long id, @RequestParam("image") MultipartFile image ) throws IOException{
         Image imgToUpdate = imgService.getImage(id);
@@ -92,6 +95,7 @@ public class ImageController {
         return imgService.updateImage(imgToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}/about") //SAVE About IMAGE
     public Image updateAboutImage( @PathVariable Long id, @RequestParam("image") MultipartFile image ) throws IOException{
         Image imgToUpdate = imgService.getImage(id);
@@ -109,6 +113,7 @@ public class ImageController {
         return imgService.updateImage(imgToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteImage( @PathVariable Long id ){
         imgService.deleteImage(id);

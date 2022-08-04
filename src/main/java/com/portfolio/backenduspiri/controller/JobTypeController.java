@@ -4,6 +4,7 @@ import com.portfolio.backenduspiri.model.JobType;
 import com.portfolio.backenduspiri.service_interface.IJobTypeService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,11 +36,13 @@ public class JobTypeController {
         return jobService.getJobType( id );
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public void saveJobType( @RequestBody JobType job ){
         jobService.createJobType(job);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public JobType updateJobType( @PathVariable Long id, @RequestBody JobType job ){
         JobType jobToUpdate = jobService.getJobType(id);
@@ -49,6 +52,7 @@ public class JobTypeController {
         return jobService.updateJobType(jobToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteJobType( @PathVariable Long id ){
         jobService.deleteJobType(id);

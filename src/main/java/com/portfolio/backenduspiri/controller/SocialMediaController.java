@@ -5,6 +5,7 @@ import com.portfolio.backenduspiri.service_interface.IPersonService;
 import com.portfolio.backenduspiri.service_interface.ISocialMediaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,6 +51,7 @@ public class SocialMediaController {
         socialService.createSocialMedia(social);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public SocialMedia updateSocialMedia( @PathVariable Long id, @RequestBody SocialMedia social ){
 
@@ -65,6 +67,7 @@ public class SocialMediaController {
         return socialService.updateSocialMedia(socialToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteSocialMedia( @PathVariable Long id ){
         socialService.deleteSocialMedia(id);

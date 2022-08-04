@@ -5,6 +5,7 @@ import com.portfolio.backenduspiri.service_interface.IPersonService;
 import com.portfolio.backenduspiri.service_interface.ISkillService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,6 +45,7 @@ public class SkillController {
         return skillService.findByPersonId(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{id}")
     public Skill saveSkill( @PathVariable Long id, @RequestBody Skill skill ){
         skill.setPerson(personService.getPerson(id));
@@ -51,6 +53,7 @@ public class SkillController {
         return skillService.getSkill(skill.getId());
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public Skill updateSkill( @PathVariable Long id, @RequestBody Skill skill ){
         Skill skillToUpdate = skillService.getSkill(id);
@@ -62,6 +65,7 @@ public class SkillController {
         return skillService.updateSkill(skillToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteSkill( @PathVariable Long id ){
         skillService.deleteSkill(id);

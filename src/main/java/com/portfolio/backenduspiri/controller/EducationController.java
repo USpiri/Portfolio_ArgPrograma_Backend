@@ -7,6 +7,7 @@ import com.portfolio.backenduspiri.util.FileUploadUtil;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,6 +50,7 @@ public class EducationController {
         return educationService.findByPersonId(id);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{id}")
     public Education saveEducation( @PathVariable Long id, @RequestBody Education edu ){
         edu.setPerson(personService.getPerson(id));
@@ -56,6 +58,7 @@ public class EducationController {
         return educationService.getEducation(edu.getId());
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public Education updateEducation( @PathVariable Long id, @RequestBody Education edu ){
         Education eduToUpdate = educationService.getEducation(id);
@@ -72,6 +75,7 @@ public class EducationController {
         return educationService.updateEducation(eduToUpdate);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}/image")
     public Education updateEducationImage( @PathVariable Long id, @RequestParam("education") MultipartFile exp ) throws IOException{
         Education eduToUpdate = educationService.getEducation(id);
@@ -89,7 +93,7 @@ public class EducationController {
         
     }
     
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteEducation( @PathVariable Long id ) throws IOException{
         String fileDir = "user-photos/" + educationService.getEducation(id).getPerson().getId() + "/education";
