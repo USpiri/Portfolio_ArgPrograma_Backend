@@ -39,7 +39,7 @@ public class JobTypeController {
     public void saveJobType( @RequestBody JobType job ){
         jobService.createJobType(job);
     }
-    
+
     @PutMapping("/{id}")
     public JobType updateJobType( @PathVariable Long id, @RequestBody JobType job ){
         JobType jobToUpdate = jobService.getJobType(id);

@@ -4,6 +4,7 @@ import com.portfolio.backenduspiri.model.Person;
 import com.portfolio.backenduspiri.service_interface.IPersonService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +42,7 @@ public class PersonController {
         return personService.getPerson(per.getId());
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public Person updatePerson( @PathVariable Long id, @RequestBody Person per ){
         Person perToUpdate = personService.getPerson(id);
