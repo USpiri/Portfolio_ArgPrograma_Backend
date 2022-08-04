@@ -15,7 +15,7 @@ La contraseña **no puede ser la del mail**, se requiere de una app password (Co
 **Administrar cuenta de Google > Seguridad > Contraseñas de aplicación**  
 
 # Image Management  
-Las imágenes **no se guardan el BBDD**, en esta solo se almacena una url que lleva a la "carpeta publica" de la API en donde se encuentran almacenadas las imágenes. Esto evita tener que registrarse en páginas que brindan este tipo de servicios pero requieren de un registro, por un lado, y por el otro evita almacenar variables muy grandes en BBDD como los ByteArray o base64.  
+Las imágenes **no se guardan el BBDD**, en esta solo se almacena una url que lleva a la "carpeta publica" de la API en donde se encuentran almacenadas las imágenes. Esto evita tener que registrarse en páginas que brindan este tipo de servicios, por un lado, y por el otro evita almacenar variables muy grandes en BBDD como los ByteArray o base64.  
 
 ![Image api description](EsquemaImageAPI.jpg)  
 
