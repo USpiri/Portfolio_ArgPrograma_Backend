@@ -38,8 +38,9 @@ public class JobTypeController {
     
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
-    public void saveJobType( @RequestBody JobType job ){
+    public JobType saveJobType( @RequestBody JobType job ){
         jobService.createJobType(job);
+        return jobService.getJobType(job.getId());
     }
 
     @PreAuthorize("hasRole('ADMIN')")

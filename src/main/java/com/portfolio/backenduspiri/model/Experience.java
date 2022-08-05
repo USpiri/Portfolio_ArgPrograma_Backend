@@ -30,10 +30,10 @@ public class Experience {
     
     private Boolean is_actual;
     
-    @Size( max = 10 , message = "[Experience.start_date] - Not accurate size")
+    @Size( max = 25 , message = "[Experience.start_date] - Not accurate size")
     private String start_date;
     
-    @Size( max = 10 , message = "[Experience.end_date] - Not accurate size")
+    @Size( max = 25 , message = "[Experience.end_date] - Not accurate size")
     private String end_date;
     
     @Size( max = 200 , message = "[Experience.img_url] - Not accurate size")

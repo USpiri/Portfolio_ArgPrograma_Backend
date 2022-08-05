@@ -30,10 +30,10 @@ public class Education {
     
     private Boolean is_actual;
     
-    @Size( max = 10 , message = "[Education.start_date] - Not accurate size")
+    @Size( max = 25 , message = "[Education.start_date] - Not accurate size")
     private String start_date;
     
-    @Size( max = 10 , message = "[Education.end_date] - Not accurate size")
+    @Size( max = 25 , message = "[Education.end_date] - Not accurate size")
     private String end_date;
     
     @Size( max = 200 , message = "[Education.img_url] - Not accurate size")
