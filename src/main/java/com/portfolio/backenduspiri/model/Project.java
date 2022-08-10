@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,13 +45,14 @@ public class Project {
     public Project() {
     }
 
-    public Project(Long id, String name, String description, String img_url, String link, boolean enabled_link) {
+    public Project(Long id, String name, String description, String img_url, String link, Boolean enabled_link, Person person) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.img_url = img_url;
         this.link = link;
         this.enabled_link = enabled_link;
+        this.person = person;
     }
     
 }

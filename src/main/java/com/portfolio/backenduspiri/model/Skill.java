@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,11 +40,12 @@ public class Skill {
     public Skill() {
     }
 
-    public Skill(Long id, String name, String percentage, String icon) {
+    public Skill(Long id, String name, String percentage, String icon, Person person) {
         this.id = id;
         this.name = name;
         this.percentage = percentage;
         this.icon = icon;
+        this.person = person;
     }
     
 }

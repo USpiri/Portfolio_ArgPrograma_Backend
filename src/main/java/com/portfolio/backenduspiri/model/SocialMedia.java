@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -50,7 +49,7 @@ public class SocialMedia {
     public SocialMedia() {
     }
 
-    public SocialMedia(Long id, String facebook, String twitter, String instagram, String github, String linkedin, String cv) {
+    public SocialMedia(Long id, String facebook, String twitter, String instagram, String github, String linkedin, String cv, Person person) {
         this.id = id;
         this.facebook = facebook;
         this.twitter = twitter;
@@ -58,6 +57,7 @@ public class SocialMedia {
         this.github = github;
         this.linkedin = linkedin;
         this.cv = cv;
+        this.person = person;
     }
     
 }

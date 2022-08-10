@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,10 +37,11 @@ public class Image {
     public Image() {
     }
 
-    public Image(Long id, String header, String about) {
+    public Image(Long id, String header, String about, Person person) {
         this.id = id;
         this.header = header;
         this.about = about;
+        this.person = person;
     }
     
 }

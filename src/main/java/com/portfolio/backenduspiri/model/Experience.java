@@ -55,7 +55,7 @@ public class Experience {
     public Experience() {
     }
 
-    public Experience(Long id, String company, String job, Boolean is_actual, String start_date, String end_date, String img_url, String link, Boolean enabled_link, String job_type) {
+    public Experience(Long id, String company, String job, Boolean is_actual, String start_date, String end_date, String img_url, String link, Boolean enabled_link, String job_type, Person person) {
         this.id = id;
         this.company = company;
         this.job = job;
@@ -66,6 +66,7 @@ public class Experience {
         this.link = link;
         this.enabled_link = enabled_link;
         this.job_type = job_type;
+        this.person = person;
     }
     
 }
