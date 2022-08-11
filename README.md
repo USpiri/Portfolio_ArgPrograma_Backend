@@ -1,8 +1,9 @@
 # **Personal Portfolio**
-**Page:**  
+**Page:** https://uriel-spiridione.web.app/  
+**API:** https://uspiri-backend.herokuapp.com/  
 **FrontEnd:** https://github.com/USpiri/Portfolio_ArgPrograma/  
 **BackEnd:** https://github.com/USpiri/Portfolio_ArgPrograma_Backend/  
-**Backend without FileSystem:** https://github.com/USpiri/Portfolio_Backend_NoImage/  
+**Backend without Image Managment:** https://github.com/USpiri/Portfolio_Backend_NoImage/  
 **Preview:** https://uspiri.github.io/  
 **Dev Journal:** https://github.com/USpiri/Portfolio_ArgPrograma/tree/master/Bit%C3%A1cora  
 #
